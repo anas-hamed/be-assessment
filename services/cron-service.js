@@ -40,7 +40,10 @@ class CronService {
               history: historyLog,
             })
               .then((newReport) => {
-                console.log(`Check ID: ${newReport.checkId}, ` + newReport.history[newReport.history.length-1]);
+                console.log(
+                  `Check ID: ${newReport.checkId}, ` +
+                    newReport.history[newReport.history.length - 1]
+                );
               })
               .catch((error) => {
                 console.log(error);
@@ -74,8 +77,10 @@ class CronService {
               history: historyLog,
             })
               .then((newReport) => {
-                console.log(`Check ID: ${newReport.checkId}, ` + newReport.history[newReport.history.length-1]);
-                // should send alert here
+                console.log(
+                  `Check ID: ${newReport.checkId}, ` +
+                    newReport.history[newReport.history.length - 1]
+                );
               })
               .catch((error) => {
                 console.log(error);
@@ -94,7 +99,7 @@ class CronService {
       CronService.taskMap[check._id] = cron.schedule(
         `*/${check.interval} * * * *`,
         () => {
-          this.checkAvailbilityCallback(check);
+          if (check) this.checkAvailbilityCallback(check);
         }
       );
     });
@@ -104,7 +109,7 @@ class CronService {
     CronService.taskMap[check._id] = cron.schedule(
       `*/${check.interval} * * * *`,
       () => {
-        this.checkAvailbilityCallback(check);
+        if (check) this.checkAvailbilityCallback(check);
       }
     );
   }
