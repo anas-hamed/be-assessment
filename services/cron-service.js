@@ -92,7 +92,7 @@ class CronService {
 
     checks.forEach((check) => {
       CronService.taskMap[check._id] = cron.schedule(
-        `*/${check.interval} * * * * *`,
+        `*/${check.interval} * * * *`,
         () => {
           this.checkAvailbilityCallback(check);
         }
@@ -102,7 +102,7 @@ class CronService {
 
   async addTask(check) {
     CronService.taskMap[check._id] = cron.schedule(
-      `*/${check.interval} * * * * *`,
+      `*/${check.interval} * * * *`,
       () => {
         this.checkAvailbilityCallback(check);
       }
