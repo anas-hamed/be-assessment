@@ -17,8 +17,6 @@ A dockerized uptime monitoring RESTful API server that allows authenticated user
 -  `npm run start`
 
 
-### Installing the Docker image
-
 ### Running the Docker image
 - Download the repo
 - cd to the project directory
